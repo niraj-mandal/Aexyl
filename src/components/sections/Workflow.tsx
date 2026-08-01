@@ -31,7 +31,13 @@ export function Workflow() {
       <div className="w-full max-w-[1400px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-24">
+        <motion.div
+          className="mb-24"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="w-8 h-[2px] bg-[#FF3B30] mb-4" />
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             What We Build
@@ -40,13 +46,17 @@ export function Workflow() {
             End-to-end digital solutions <br />
             designed to generate leads.
           </h2>
-        </div>
+        </motion.div>
 
         {/* List items */}
         <div className="flex flex-col">
           {BUILD_ITEMS.map((item, index) => (
-            <div 
-              key={index} 
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className={`flex flex-col md:flex-row md:items-center justify-between py-12 ${index === 0 ? 'border-t border-[#111]' : ''} border-b border-[#111] group hover:bg-[#0A0A0A] transition-colors duration-300 px-4 -mx-4 rounded-xl`}
             >
               {/* Left Side: Number & Title */}
@@ -70,7 +80,7 @@ export function Workflow() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

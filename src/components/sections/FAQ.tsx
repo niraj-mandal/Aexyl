@@ -39,30 +39,40 @@ export function FAQ() {
       <div className="w-full max-w-[900px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-20 text-center">
+        <motion.div
+          className="mb-20 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="text-[12px] font-bold text-[#555] tracking-[0.2em] uppercase">
             Frequently Asked Questions
           </h2>
-        </div>
+        </motion.div>
 
         {/* Accordion */}
         <div className="flex flex-col">
           {FAQS.map((faq, index) => (
-            <div 
+            <motion.div 
               key={index}
               className="border-b border-[#111]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
               <button
                 onClick={() => toggleOpen(index)}
-                className="w-full py-8 flex items-center justify-between text-left focus:outline-none group"
+                className="w-full py-8 flex items-center justify-between text-left focus:outline-none group cursor-pointer"
               >
-                <span className={`text-[17px] md:text-xl font-medium tracking-tight transition-colors ${openIndex === index ? 'text-white underline underline-offset-8 decoration-[#FF3B30]' : 'text-[#DDD] group-hover:text-white'}`}>
+                <span className={`text-[17px] md:text-xl font-medium tracking-tight transition-colors duration-300 ${openIndex === index ? 'text-white underline underline-offset-8 decoration-[#FF3B30]' : 'text-[#DDD] group-hover:text-white'}`}>
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="shrink-0 ml-4 text-[#555] group-hover:text-[#999] transition-colors"
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="shrink-0 ml-4 text-[#555] group-hover:text-[#999] transition-colors duration-300"
                 >
                   <ChevronDown className="w-5 h-5" />
                 </motion.div>
@@ -74,16 +84,21 @@ export function FAQ() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-8 text-[#888] text-[15px] font-medium leading-relaxed pr-8">
+                    <motion.p
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                      className="pb-8 text-[#888] text-[15px] font-medium leading-relaxed pr-8"
+                    >
                       {faq.answer}
-                    </p>
+                    </motion.p>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

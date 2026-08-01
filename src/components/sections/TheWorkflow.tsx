@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const WORKFLOW_STEPS = [
   {
     number: "01",
@@ -34,7 +36,13 @@ export function TheWorkflow() {
       <div className="w-full max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-24">
+        <motion.div
+          className="mb-24"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="w-8 h-[2px] bg-[#FF3B30] mb-4" />
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             The Workflow
@@ -42,7 +50,7 @@ export function TheWorkflow() {
           <h2 className="text-[50px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white">
             How Aexyl Works
           </h2>
-        </div>
+        </motion.div>
 
         {/* Timeline List */}
         <div className="max-w-3xl">
@@ -52,7 +60,14 @@ export function TheWorkflow() {
             
             <div className="flex flex-col gap-16">
               {WORKFLOW_STEPS.map((step, index) => (
-                <div key={index} className="relative flex items-start gap-8 md:gap-12 group">
+                <motion.div
+                  key={index}
+                  className="relative flex items-start gap-8 md:gap-12 group"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                >
                   
                   {/* Circle Number */}
                   <div className="relative z-10 flex items-center justify-center w-12 h-12 md:w-[54px] md:h-[54px] rounded-full border border-[#222] bg-[#0A0A0A] shrink-0 group-hover:border-[#333] transition-colors duration-300">
@@ -71,7 +86,7 @@ export function TheWorkflow() {
                     </p>
                   </div>
                   
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

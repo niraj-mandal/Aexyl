@@ -18,6 +18,9 @@
   :root {
     color-scheme: dark;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-text-primary antialiased;
   }
@@ -27,4 +30,43 @@
   .text-gradient {
     @apply bg-gradient-to-r from-[#FF6B81] to-[#FF8E8E] bg-clip-text text-transparent;
   }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Floating animation for dashboard */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* Popular card border glow */
+@keyframes border-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 59, 48, 0.1); }
+  50% { box-shadow: 0 0 35px rgba(255, 59, 48, 0.2); }
+}
+.animate-border-glow {
+  animation: border-glow 3s ease-in-out infinite;
 }

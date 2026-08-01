@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 const WEBSITE_FEATURES = [
@@ -70,7 +71,13 @@ export function Packages() {
       <div className="w-full max-w-[1200px] mx-auto px-6">
         
         {/* Section Header */}
-        <div className="mb-20">
+        <motion.div
+          className="mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="w-8 h-[2px] bg-[#FF3B30] mb-4" />
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             Our Packages
@@ -79,10 +86,16 @@ export function Packages() {
             Everything you need<br />
             to grow online.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Website Launch Package Card */}
-        <div className="bg-[#0A0A0A] border border-[#111] rounded-2xl p-8 md:p-12 mb-20 max-w-4xl mx-auto shadow-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="bg-[#0A0A0A] border border-[#111] rounded-2xl p-8 md:p-12 mb-20 max-w-4xl mx-auto shadow-2xl"
+        >
           <div className="flex items-center gap-3 mb-10">
             <div className="w-1 h-4 bg-[#FF3B30] rounded-full" />
             <span className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase">Website Launch Package</span>
@@ -90,25 +103,42 @@ export function Packages() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 mb-10">
             {WEBSITE_FEATURES.map((feature, i) => (
-              <div key={i} className="flex items-center gap-3">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="flex items-center gap-3"
+              >
                 <div className="w-1 h-1 rounded-full bg-[#FF3B30] shrink-0" />
                 <span className="text-[#888] text-[13px] font-medium">{feature}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <button className="w-full bg-white text-black py-4 rounded-full font-bold text-sm hover:bg-white/90 transition-colors">
+          <motion.button
+            whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(255,255,255,0.1)" }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="w-full bg-white text-black py-4 rounded-full font-bold text-sm cursor-pointer"
+          >
             Launch My Website
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* Pricing Tiers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {PRICING_TIERS.map((tier, i) => (
-            <div 
-              key={i} 
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.3 } }}
               className={`relative bg-[#0A0A0A] rounded-2xl p-8 flex flex-col ${
-                tier.highlighted ? 'border border-[#FF3B30] shadow-[0_0_30px_rgba(255,59,48,0.1)]' : 'border border-[#111]'
+                tier.highlighted ? 'border border-[#FF3B30] animate-border-glow' : 'border border-[#111]'
               }`}
             >
               {tier.highlighted && (
@@ -128,15 +158,18 @@ export function Packages() {
                 {tier.description}
               </p>
 
-              <button 
-                className={`w-full py-3 rounded-full text-sm font-bold mb-10 transition-colors ${
+              <motion.button
+                whileHover={{ scale: 1.03, boxShadow: tier.highlighted ? "0 0 20px rgba(255,255,255,0.15)" : "0 0 15px rgba(255,255,255,0.05)" }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className={`w-full py-3 rounded-full text-sm font-bold mb-10 cursor-pointer ${
                   tier.highlighted 
-                    ? 'bg-white text-black hover:bg-white/90' 
+                    ? 'bg-white text-black' 
                     : 'bg-transparent border border-[#333] text-white hover:bg-[#111]'
                 }`}
               >
                 Choose {tier.name} &rarr;
-              </button>
+              </motion.button>
 
               <div className="flex flex-col gap-4 mt-auto">
                 {tier.features.map((feature, fIndex) => (
@@ -146,7 +179,7 @@ export function Packages() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
