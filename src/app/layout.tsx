@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,16 +9,16 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AEXLY.IO | Premium Digital Growth Agency",
-  description: "AEXLY.IO is a premium digital growth agency specializing in luxury, modern, and technology-driven web experiences.",
+  title: "Aexyl.in | AI Websites, Automation & Growth Systems",
+  description: "Aexyl.in is a premium digital growth agency specializing in AI websites, automation, and modern growth systems for businesses.",
   openGraph: {
-    title: "AEXLY.IO | Premium Digital Growth Agency",
-    description: "AEXLY.IO is a premium digital growth agency specializing in luxury, modern, and technology-driven web experiences.",
-    url: "https://aexly.io",
-    siteName: "AEXLY.IO",
+    title: "Aexyl.in | AI Websites, Automation & Growth Systems",
+    description: "Aexyl.in is a premium digital growth agency specializing in AI websites, automation, and modern growth systems for businesses.",
+    url: "https://aexyl.in",
+    siteName: "Aexyl.in",
     images: [
       {
-        url: "https://aexly.io/og-image.jpg",
+        url: "https://aexyl.in/og-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AEXLY.IO | Premium Digital Growth Agency",
-    description: "AEXLY.IO is a premium digital growth agency specializing in luxury, modern, and technology-driven web experiences.",
+    title: "Aexyl.in | AI Websites, Automation & Growth Systems",
+    description: "Aexyl.in is a premium digital growth agency specializing in AI websites, automation, and modern growth systems for businesses.",
   },
 };
 
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased bg-background text-text-primary selection:bg-surface-secondary selection:text-white`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
