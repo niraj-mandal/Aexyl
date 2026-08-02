@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe, Bot, Zap, TrendingUp, CheckCircle2 } from "lucide-react";
+import { WA_LINKS } from "@/lib/utils";
 
 const stagger = {
   hidden: {},
@@ -63,6 +64,7 @@ export function Hero() {
 
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 mb-8">
             <motion.button 
+              onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
               whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -71,6 +73,7 @@ export function Hero() {
               Book Free Strategy Call
             </motion.button>
             <motion.button 
+              onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
               whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}

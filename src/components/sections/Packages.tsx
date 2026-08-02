@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { WA_LINKS } from "@/lib/utils";
 
 const WEBSITE_FEATURES = [
   "Premium Responsive Website",
@@ -118,6 +119,7 @@ export function Packages() {
           </div>
 
           <motion.button
+            onClick={() => window.open(WA_LINKS.websitePackage, '_blank')}
             whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(255,255,255,0.1)" }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -159,6 +161,7 @@ export function Packages() {
               </p>
 
               <motion.button
+                onClick={() => window.open(WA_LINKS.packageInquiry(tier.name), '_blank')}
                 whileHover={{ scale: 1.03, boxShadow: tier.highlighted ? "0 0 20px rgba(255,255,255,0.15)" : "0 0 15px rgba(255,255,255,0.05)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -182,6 +185,25 @@ export function Packages() {
             </motion.div>
           ))}
         </div>
+
+        {/* Secondary Contact Us Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 flex justify-center"
+        >
+          <motion.button
+            onClick={() => window.open(WA_LINKS.viewPackages, '_blank')}
+            whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="bg-transparent border border-[#333] text-[#888] hover:text-white px-8 py-3 rounded-full text-sm font-semibold transition-colors cursor-pointer"
+          >
+            Not sure which to choose? Contact Us
+          </motion.button>
+        </motion.div>
 
       </div>
     </section>

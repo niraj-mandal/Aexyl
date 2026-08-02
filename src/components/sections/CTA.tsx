@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { WA_LINKS } from "@/lib/utils";
 
 export function CTA() {
   return (
@@ -34,6 +35,7 @@ export function CTA() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <motion.button
+            onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
             whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -42,6 +44,7 @@ export function CTA() {
             Book Free Strategy Call
           </motion.button>
           <motion.button
+            onClick={() => window.open(WA_LINKS.contactUs, '_blank')}
             whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}

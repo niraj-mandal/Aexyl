@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, WA_LINKS, scrollToSection } from "@/lib/utils";
 
 const NAV_LINKS = [
   { name: "Services", href: "#services" },
@@ -45,6 +45,7 @@ export function Navbar() {
             <li key={link.name}>
               <a 
                 href={link.href}
+                onClick={(e) => scrollToSection(e as any, link.href.substring(1))}
                 className="relative text-[13px] font-medium text-[#888] hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-[#FF3B30] after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
@@ -55,6 +56,7 @@ export function Navbar() {
 
         <div className="flex items-center">
           <motion.button
+            onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
             whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
