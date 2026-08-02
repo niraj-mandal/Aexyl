@@ -38,7 +38,7 @@ export function Hero() {
       >
         
         {/* Left Text Content */}
-        <div className="flex flex-col items-start text-left">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <motion.div variants={fadeUp} className="w-8 h-[2px] bg-[#FF3B30] mb-4" />
           <motion.div variants={fadeUp} className="text-[11px] font-semibold text-[#555] tracking-[0.2em] mb-12">
             JORHAT · ASSAM · NORTHEAST INDIA
@@ -58,7 +58,7 @@ export function Hero() {
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="text-[#888] text-[16px] md:text-[15px] max-w-[420px] leading-relaxed mb-10 md:mb-10 pr-4 md:pr-0">
+          <motion.p variants={fadeUp} className="text-[#888] text-[16px] md:text-[15px] max-w-[420px] leading-relaxed mb-10 px-2 md:px-0">
             We build websites, AI systems, and automation infrastructure that help businesses operate more efficiently and grow sustainably.
           </motion.p>
 
@@ -83,7 +83,7 @@ export function Hero() {
             </motion.button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-4 gap-y-3 md:gap-5 text-[#555] text-[12px] md:text-[11px] font-semibold tracking-wide w-full">
+          <motion.div variants={fadeUp} className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 md:gap-5 text-[#555] text-[12px] md:text-[11px] font-semibold tracking-wide w-full max-w-[320px] md:max-w-none">
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Websites</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> AI Agents</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Automation</span>
