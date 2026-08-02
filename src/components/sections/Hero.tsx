@@ -64,7 +64,7 @@ export function Hero() {
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full md:w-auto mb-10 md:mb-8 px-2 md:px-0">
             <motion.button 
-              onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
+              onClick={() => window.location.href = 'tel:+918724029014'}
               whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}

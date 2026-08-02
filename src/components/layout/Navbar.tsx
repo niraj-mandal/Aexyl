@@ -67,7 +67,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3 md:gap-0">
           <motion.button
-            onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
+            onClick={() => window.location.href = 'tel:+918724029014'}
             whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -135,7 +135,7 @@ export function Navbar() {
               <button
                 onClick={() => {
                   setIsMenuOpen(false);
-                  window.open(WA_LINKS.bookFreeCall, '_blank');
+                  window.location.href = 'tel:+918724029014';
                 }}
                 className="w-full bg-white text-black py-4 rounded-full font-bold text-[15px] min-h-[52px]"
               >
