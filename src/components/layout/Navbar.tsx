@@ -8,7 +8,7 @@ import { cn, WA_LINKS, scrollToSection } from "@/lib/utils";
 const NAV_LINKS = [
   { name: "Services", href: "#services" },
   { name: "Packages", href: "#packages" },
-  { name: "Workflow", href: "#workflow" },
+  { name: "Workflow", href: "#the-workflow" },
 ];
 
 export function Navbar() {
@@ -47,7 +47,7 @@ export function Navbar() {
       >
         <div className="flex items-center gap-2">
           <a href="#" className="text-[15px] font-bold tracking-wider text-[#FF3B30]">
-            AEXYL.IO
+            AEXYL
           </a>
         </div>
 
@@ -105,7 +105,7 @@ export function Navbar() {
             >
               <div className="flex justify-between items-center mb-10">
                 <div className="text-[15px] font-bold tracking-wider text-[#FF3B30]">
-                  AEXYL.IO
+                  AEXYL
                 </div>
                 <button 
                   onClick={() => setIsMenuOpen(false)} 
