@@ -38,26 +38,26 @@ export function Navbar() {
     >
       <nav
         className={cn(
-          "flex items-center justify-between px-5 md:px-6 py-2.5 md:py-2 rounded-full w-full md:w-fit gap-4 md:gap-10",
+          "flex items-center justify-between pl-6 pr-2.5 py-2.5 md:pl-8 md:pr-3 md:py-3 rounded-full w-full md:w-auto gap-4 md:gap-12",
           "transition-all duration-500 ease-out",
           isScrolled
-            ? "bg-black/70 backdrop-blur-2xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
-            : "bg-black/40 backdrop-blur-xl border border-white/10 shadow-2xl"
+            ? "bg-black/60 backdrop-blur-3xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+            : "bg-[#0A0A0A]/40 backdrop-blur-2xl border border-white/[0.08] shadow-2xl"
         )}
       >
-        <div className="flex items-center gap-2">
-          <a href="#" className="text-[15px] font-bold tracking-wider text-[#FF3B30]">
+        <div className="flex items-center">
+          <a href="#" className="text-[15px] font-bold tracking-widest text-[#FF3B30]">
             AEXYL
           </a>
         </div>
 
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.name}>
               <a 
                 href={link.href}
                 onClick={(e) => scrollToSection(e as any, link.href.substring(1))}
-                className="relative text-[13px] font-medium text-[#888] hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-[#FF3B30] after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-[14px] font-medium text-[#999] hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-[#FF3B30] after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
               </a>
@@ -71,7 +71,7 @@ export function Navbar() {
             whileHover={{ scale: 1.03, boxShadow: "0 0 20px rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="hidden md:block bg-white text-black px-4 md:px-5 py-2 rounded-full text-[12px] md:text-[13px] font-semibold transition-all duration-300 shadow-[0_0_15px_rgba(255,255,255,0.1)] cursor-pointer"
+            className="hidden md:block bg-white text-black px-6 py-2.5 rounded-full text-[14px] font-semibold transition-all duration-300 cursor-pointer"
           >
             Book Free Call
           </motion.button>
