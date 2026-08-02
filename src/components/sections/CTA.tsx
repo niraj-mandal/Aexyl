@@ -21,9 +21,14 @@ export function CTA() {
         <div className="w-8 h-[2px] bg-[#FF3B30] mb-8" />
         
         {/* Title */}
-        <h2 className="text-[44px] md:text-[72px] lg:text-[84px] font-black tracking-[-0.03em] leading-[0.95] text-white mb-6 px-4 md:px-0">
-          Ready To Build <br className="md:hidden" /> Your Growth<br className="hidden md:block" />
+        <h2 className="text-[44px] md:hidden font-black tracking-[-0.03em] leading-[0.95] text-white mb-6 px-4">
+          Ready To Build<br />
+          Your Growth<br />
           System?
+        </h2>
+        <h2 className="hidden md:block text-[72px] lg:text-[84px] font-black tracking-[-0.03em] leading-[0.95] text-white mb-6">
+          Ready To Build Your<br />
+          Growth System?
         </h2>
         
         {/* Subtitle */}
