@@ -48,7 +48,7 @@ export function Hero() {
             className="text-[48px] md:text-[72px] lg:text-[100px] xl:text-[120px] font-black leading-[0.9] md:leading-[0.88] tracking-[-0.04em] text-white mb-6 md:mb-8"
             variants={stagger}
           >
-            {["The Growth", "Infrastructure", "Behind", "Modern"].map((line, i) => (
+            {["The Growth", "Infrastructure", "Behind Modern"].map((line, i) => (
               <motion.span key={i} variants={fadeUp} className="block">
                 {line}
               </motion.span>
@@ -58,17 +58,17 @@ export function Hero() {
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="text-[#888] text-[16px] md:text-[15px] max-w-[420px] leading-relaxed mb-10 px-2 md:px-0">
+          <motion.p variants={fadeUp} className="text-[#888] text-[16px] md:text-[15px] max-w-[360px] md:max-w-[420px] leading-relaxed mb-10 px-2 md:px-0">
             We build websites, AI systems, and automation infrastructure that help businesses operate more efficiently and grow sustainably.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full md:w-auto mb-10 md:mb-8">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full md:w-auto mb-10 md:mb-8 px-2 md:px-0">
             <motion.button 
               onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
               whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="bg-white text-black px-6 py-3.5 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[52px]"
+              className="bg-white text-black px-6 py-4 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[56px] md:min-h-[52px]"
             >
               Book Free Strategy Call
             </motion.button>
@@ -77,13 +77,13 @@ export function Hero() {
               whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="bg-transparent border border-[#333] text-white px-6 py-3.5 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[52px]"
+              className="bg-transparent border border-[#333] text-white px-6 py-4 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[56px] md:min-h-[52px]"
             >
               See Packages
             </motion.button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 md:gap-5 text-[#555] text-[12px] md:text-[11px] font-semibold tracking-wide w-full max-w-[320px] md:max-w-none">
+          <motion.div variants={fadeUp} className="flex flex-wrap justify-center items-center gap-x-5 gap-y-4 md:gap-5 text-[#555] text-[13px] md:text-[11px] font-semibold tracking-wide w-full md:max-w-none">
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Websites</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> AI Agents</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Automation</span>
