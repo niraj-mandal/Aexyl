@@ -6,24 +6,32 @@ import { ChevronDown } from "lucide-react";
 
 const FAQS = [
   {
-    question: "How long does a website take?",
-    answer: "For a standard premium website, our timeline is typically 4-6 weeks from discovery to launch. Enterprise and custom web app projects can take 8-12 weeks depending on complexity.",
+    question: "What services does AEXYL offer?",
+    answer: "AEXYL helps businesses grow through premium website development, AI solutions, workflow automation, branding, SEO, and digital marketing. We create tailored digital systems that improve your online presence and drive measurable business growth.",
   },
   {
-    question: "Do I need hosting?",
-    answer: "We handle the hosting setup for you using premium, secure servers. If you already have hosting, we can deploy there as well, but our managed hosting ensures the best performance and security.",
+    question: "How long does a project usually take?",
+    answer: "Most website projects are completed within 6-7 working days, while more advanced AI, automation, or custom development projects typically take 10-12 working days, depending on the scope and complexity.",
   },
   {
-    question: "Can you manage my social media?",
-    answer: "Yes, our Growth and Scale packages include dedicated social media management, content creation, and posting schedules to ensure consistent engagement with your audience.",
+    question: "What makes AEXYL different from other agencies?",
+    answer: "We don't just build websites—we build complete digital growth systems. Every project combines modern design, high performance, strategic thinking, and AI-powered solutions to help businesses generate more leads and operate more efficiently.",
   },
   {
-    question: "Do you provide SEO?",
-    answer: "Absolutely. All our websites come with Local SEO optimization built-in. Advanced SEO strategies, content marketing, and backlinking are available in our higher-tier packages.",
+    question: "Will my website be mobile-friendly and SEO optimized?",
+    answer: "Absolutely. Every website we create is fully responsive, optimized for speed, built with SEO best practices, and designed to provide an excellent experience across desktop, tablet, and mobile devices.",
   },
   {
-    question: "Can I upgrade later?",
-    answer: "Yes! You can start with our Starter package and seamlessly upgrade to Growth or Scale as your business expands. We build everything modularly to support future growth without needing a complete rewrite.",
+    question: "Do you provide support after the project is completed?",
+    answer: "Yes. We continue to support our clients after launch with maintenance, updates, technical assistance, performance monitoring, and ongoing improvements based on the selected support plan.",
+  },
+  {
+    question: "How do I get started?",
+    answer: "Simply book a free strategy call or contact us through WhatsApp. We'll learn about your business, discuss your goals, recommend the right solution, and outline the next steps before starting your project.",
+  },
+  {
+    question: "Do I need to pay before the project starts?",
+    answer: "We typically begin with an initial deposit to reserve your project and start the planning and development process. The remaining balance is paid according to agreed project milestones, ensuring transparency for both sides.",
   },
 ];
 
