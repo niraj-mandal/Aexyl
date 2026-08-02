@@ -32,8 +32,8 @@ const WORKFLOW_STEPS = [
 
 export function TheWorkflow() {
   return (
-    <section id="the-workflow" className="w-full bg-black py-32">
-      <div className="w-full max-w-[1200px] mx-auto px-6">
+    <section id="the-workflow" className="w-full bg-black py-20 md:py-32">
+      <div className="w-full max-w-[1200px] mx-auto px-5 md:px-6">
         
         {/* Section Header */}
         <motion.div
@@ -47,7 +47,7 @@ export function TheWorkflow() {
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             The Workflow
           </div>
-          <h2 className="text-[50px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white">
+          <h2 className="text-[46px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white">
             How Aexyl Works
           </h2>
         </motion.div>
@@ -56,9 +56,9 @@ export function TheWorkflow() {
         <div className="max-w-3xl">
           <div className="relative">
             {/* The vertical line that connects the circles */}
-            <div className="absolute left-[23px] top-4 bottom-12 w-[1px] bg-[#111] md:left-[27px]" />
+            <div className="absolute left-[24px] md:left-[27px] top-4 bottom-12 w-[1px] bg-[#111]" />
             
-            <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-12 md:gap-16">
               {WORKFLOW_STEPS.map((step, index) => (
                 <motion.div
                   key={index}
@@ -78,10 +78,10 @@ export function TheWorkflow() {
 
                   {/* Text Content */}
                   <div className="pt-2">
-                    <h3 className="text-2xl md:text-[28px] font-bold text-white mb-3 tracking-tight">
+                    <h3 className="text-[26px] md:text-[28px] font-bold text-white mb-2 md:mb-3 tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-[#777] text-[15px] md:text-base font-medium leading-relaxed max-w-xl">
+                    <p className="text-[#888] text-[16px] md:text-base font-medium leading-relaxed max-w-xl">
                       {step.description}
                     </p>
                   </div>

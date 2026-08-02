@@ -45,7 +45,7 @@ export function Hero() {
           </motion.div>
 
           <motion.h1 
-            className="text-[72px] lg:text-[100px] xl:text-[120px] font-black leading-[0.88] tracking-[-0.04em] text-white mb-8"
+            className="text-[48px] md:text-[72px] lg:text-[100px] xl:text-[120px] font-black leading-[0.9] md:leading-[0.88] tracking-[-0.04em] text-white mb-6 md:mb-8"
             variants={stagger}
           >
             {["The Growth", "Infrastructure", "Behind", "Modern"].map((line, i) => (
@@ -58,17 +58,17 @@ export function Hero() {
             </motion.span>
           </motion.h1>
 
-          <motion.p variants={fadeUp} className="text-[#888] text-[15px] max-w-[420px] leading-relaxed mb-10">
+          <motion.p variants={fadeUp} className="text-[#888] text-[16px] md:text-[15px] max-w-[420px] leading-relaxed mb-10 md:mb-10 pr-4 md:pr-0">
             We build websites, AI systems, and automation infrastructure that help businesses operate more efficiently and grow sustainably.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 mb-8">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap items-center gap-4 w-full md:w-auto mb-10 md:mb-8">
             <motion.button 
               onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
               whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="bg-white text-black px-6 py-3 rounded-full text-sm font-bold transition-colors cursor-pointer"
+              className="bg-white text-black px-6 py-3.5 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[52px]"
             >
               Book Free Strategy Call
             </motion.button>
@@ -77,13 +77,13 @@ export function Hero() {
               whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="bg-transparent border border-[#333] text-white px-6 py-3 rounded-full text-sm font-bold transition-colors cursor-pointer"
+              className="bg-transparent border border-[#333] text-white px-6 py-3.5 md:py-3 rounded-full text-[15px] md:text-sm font-bold transition-colors cursor-pointer w-full md:w-auto min-h-[52px]"
             >
               See Packages
             </motion.button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-5 text-[#555] text-[11px] font-semibold tracking-wide">
+          <motion.div variants={fadeUp} className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-4 gap-y-3 md:gap-5 text-[#555] text-[12px] md:text-[11px] font-semibold tracking-wide w-full">
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Websites</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> AI Agents</span>
             <span className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-[#FF3B30]" /> Automation</span>
@@ -92,9 +92,9 @@ export function Hero() {
         </div>
 
         {/* Right Dashboard UI */}
-        <motion.div className="relative" variants={slideRight}>
+        <motion.div className="relative mt-12 md:mt-0" variants={slideRight}>
           <div className="animate-float">
-            <div className="w-full bg-[#0B0B0B] border border-[#1A1A1A] rounded-2xl p-6 shadow-2xl">
+            <div className="w-full bg-[#0B0B0B] border border-[#1A1A1A] rounded-[24px] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:shadow-2xl">
               {/* Top Bar */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex gap-1.5">

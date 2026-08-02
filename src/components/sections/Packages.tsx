@@ -68,8 +68,8 @@ const PRICING_TIERS = [
 
 export function Packages() {
   return (
-    <section id="packages" className="py-32 w-full bg-black">
-      <div className="w-full max-w-[1200px] mx-auto px-6">
+    <section id="packages" className="py-20 md:py-32 w-full bg-black">
+      <div className="w-full max-w-[1200px] mx-auto px-5 md:px-6">
         
         {/* Section Header */}
         <motion.div
@@ -83,7 +83,7 @@ export function Packages() {
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             Our Packages
           </div>
-          <h2 className="text-[50px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white max-w-3xl">
+          <h2 className="text-[46px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white max-w-3xl">
             Everything you need<br />
             to grow online.
           </h2>
@@ -95,7 +95,7 @@ export function Packages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-[#0A0A0A] border border-[#111] rounded-2xl p-8 md:p-12 mb-20 max-w-4xl mx-auto shadow-2xl"
+          className="bg-[#0A0A0A] border border-[#111] rounded-[24px] p-8 md:p-12 mb-16 md:mb-20 max-w-4xl mx-auto shadow-2xl"
         >
           <div className="flex items-center gap-3 mb-10">
             <div className="w-1 h-4 bg-[#FF3B30] rounded-full" />
@@ -112,8 +112,8 @@ export function Packages() {
                 transition={{ duration: 0.4, delay: i * 0.05 }}
                 className="flex items-center gap-3"
               >
-                <div className="w-1 h-1 rounded-full bg-[#FF3B30] shrink-0" />
-                <span className="text-[#888] text-[13px] font-medium">{feature}</span>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FF3B30] shrink-0 mt-0.5" />
+                <span className="text-[#888] text-[15px] md:text-[13px] font-medium leading-[1.4]">{feature}</span>
               </motion.div>
             ))}
           </div>
@@ -123,7 +123,7 @@ export function Packages() {
             whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(255,255,255,0.1)" }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="w-full bg-white text-black py-4 rounded-full font-bold text-sm cursor-pointer"
+            className="w-full bg-white text-black py-4 rounded-full font-bold text-[15px] md:text-sm cursor-pointer min-h-[52px] md:min-h-0"
           >
             Launch My Website
           </motion.button>
@@ -139,8 +139,10 @@ export function Packages() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.3 } }}
-              className={`relative bg-[#0A0A0A] rounded-2xl p-8 flex flex-col ${
-                tier.highlighted ? 'border border-[#FF3B30] animate-border-glow' : 'border border-[#111]'
+              className={`relative rounded-[24px] p-8 md:p-10 flex flex-col ${
+                tier.highlighted 
+                  ? 'border border-[#FF3B30] bg-gradient-to-b from-[#110505] to-[#0A0A0A] md:bg-none md:bg-[#0A0A0A] shadow-[0_10px_40px_rgba(255,59,48,0.15)] md:shadow-none' 
+                  : 'border border-[#111] bg-[#0A0A0A]'
               }`}
             >
               {tier.highlighted && (
@@ -149,14 +151,14 @@ export function Packages() {
                 </div>
               )}
 
-              <h3 className="text-sm font-semibold text-[#888] mb-4">{tier.name}</h3>
+              <h3 className="text-[15px] md:text-sm font-bold md:font-semibold text-[#888] mb-4">{tier.name}</h3>
               
               <div className="flex items-end gap-1 mb-4">
-                <span className="text-4xl font-black text-white">{tier.price}</span>
-                <span className="text-[#555] text-xs font-medium mb-1">/month</span>
+                <span className="text-[44px] md:text-4xl font-black text-white leading-none">{tier.price}</span>
+                <span className="text-[#555] text-[13px] md:text-xs font-medium mb-1">/month</span>
               </div>
 
-              <p className="text-[#777] text-[13px] font-medium leading-relaxed min-h-[50px] mb-8">
+              <p className="text-[#777] text-[15px] md:text-[13px] font-medium leading-[1.6] md:leading-relaxed min-h-[50px] mb-8">
                 {tier.description}
               </p>
 
@@ -165,9 +167,9 @@ export function Packages() {
                 whileHover={{ scale: 1.03, boxShadow: tier.highlighted ? "0 0 20px rgba(255,255,255,0.15)" : "0 0 15px rgba(255,255,255,0.05)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className={`w-full py-3 rounded-full text-sm font-bold mb-10 cursor-pointer ${
+                className={`w-full py-4 md:py-3 rounded-full text-[15px] md:text-sm font-bold mb-10 cursor-pointer min-h-[52px] md:min-h-0 ${
                   tier.highlighted 
-                    ? 'bg-white text-black' 
+                    ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.15)]' 
                     : 'bg-transparent border border-[#333] text-white hover:bg-[#111]'
                 }`}
               >
@@ -176,9 +178,9 @@ export function Packages() {
 
               <div className="flex flex-col gap-4 mt-auto">
                 {tier.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#FF3B30] shrink-0 mt-0.5" />
-                    <span className="text-[#999] text-[13px] font-medium leading-tight">{feature}</span>
+                  <div key={fIndex} className="flex items-start gap-3 md:gap-3">
+                    <Check className="w-4.5 h-4.5 md:w-4 md:h-4 text-[#FF3B30] shrink-0 mt-0.5 md:mt-0.5" />
+                    <span className="text-[#999] text-[15px] md:text-[13px] font-medium leading-relaxed md:leading-tight">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -199,7 +201,7 @@ export function Packages() {
             whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="bg-transparent border border-[#333] text-[#888] hover:text-white px-8 py-3 rounded-full text-sm font-semibold transition-colors cursor-pointer"
+            className="bg-transparent border border-[#333] text-[#888] hover:text-white px-8 py-4 md:py-3 rounded-full text-[15px] md:text-sm font-semibold transition-colors cursor-pointer w-full sm:w-auto min-h-[52px] md:min-h-0"
           >
             Not sure which to choose? Contact Us
           </motion.button>

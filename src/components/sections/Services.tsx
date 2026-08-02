@@ -13,7 +13,7 @@ const SERVICES = [
 export function Services() {
   return (
     <section id="services" className="w-full border-t border-[#111] bg-[#050505]">
-      <div className="w-full max-w-[1400px] mx-auto pt-24 pb-20">
+      <div className="w-full max-w-[1400px] mx-auto px-5 md:px-6 lg:px-0 pt-20 md:pt-24 pb-16 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,16 +33,16 @@ export function Services() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className={`flex flex-col items-start p-10 ${service.border ? 'lg:border-r' : ''} border-[#111] group cursor-default`}
+              className={`flex flex-col items-start p-8 md:p-10 ${service.border ? 'lg:border-r border-b lg:border-b-0' : ''} border-[#111] group cursor-default bg-[#0A0A0A] md:bg-transparent rounded-2xl md:rounded-none mb-4 md:mb-0`}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <service.Icon className="w-5 h-5 text-[#FF3B30] mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,59,48,0.4)]" />
+                <service.Icon className="w-7 h-7 md:w-5 md:h-5 text-[#FF3B30] mb-6 md:mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,59,48,0.4)]" />
               </motion.div>
-              <h3 className="text-[15px] font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-[#888] text-[13px] leading-relaxed">
+              <h3 className="text-[17px] md:text-[15px] font-bold text-white mb-3 md:mb-3 tracking-tight">{service.title}</h3>
+              <p className="text-[#888] text-[15px] md:text-[13px] leading-[1.6] md:leading-relaxed pr-4 md:pr-0">
                 {service.desc}
               </p>
             </motion.div>

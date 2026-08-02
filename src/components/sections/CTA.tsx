@@ -5,12 +5,12 @@ import { WA_LINKS } from "@/lib/utils";
 
 export function CTA() {
   return (
-    <section className="w-full bg-black py-32 flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <section className="w-full bg-black py-24 md:py-32 flex flex-col items-center justify-center text-center relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,59,48,0.04)_0%,transparent_70%)] animate-glow-pulse pointer-events-none" />
 
       <motion.div
-        className="w-full max-w-4xl mx-auto px-6 flex flex-col items-center relative z-10"
+        className="w-full max-w-4xl mx-auto px-5 md:px-6 flex flex-col items-center relative z-10"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -21,7 +21,7 @@ export function CTA() {
         <div className="w-8 h-[2px] bg-[#FF3B30] mb-8" />
         
         {/* Title */}
-        <h2 className="text-[50px] md:text-[72px] lg:text-[84px] font-black tracking-[-0.03em] leading-[0.95] text-white mb-6">
+        <h2 className="text-[44px] md:text-[72px] lg:text-[84px] font-black tracking-[-0.03em] leading-[0.95] text-white mb-6">
           Ready To Build Your<br />
           Growth System?
         </h2>
@@ -33,13 +33,13 @@ export function CTA() {
         </p>
         
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
           <motion.button
             onClick={() => window.open(WA_LINKS.bookFreeCall, '_blank')}
             whileHover={{ scale: 1.03, boxShadow: "0 0 25px rgba(255,255,255,0.15)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-full text-sm font-bold cursor-pointer"
+            className="w-full sm:w-auto bg-white text-black px-8 py-4 md:py-4 rounded-full text-[15px] md:text-sm font-bold cursor-pointer min-h-[52px]"
           >
             Book Free Strategy Call
           </motion.button>
@@ -48,7 +48,7 @@ export function CTA() {
             whileHover={{ scale: 1.03, backgroundColor: "rgba(17,17,17,1)" }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="w-full sm:w-auto bg-transparent border border-[#333] text-white px-8 py-4 rounded-full text-sm font-bold cursor-pointer"
+            className="w-full sm:w-auto bg-transparent border border-[#333] text-white px-8 py-4 md:py-4 rounded-full text-[15px] md:text-sm font-bold cursor-pointer min-h-[52px]"
           >
             Contact Us
           </motion.button>

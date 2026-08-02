@@ -27,8 +27,8 @@ const BUILD_ITEMS = [
 
 export function Workflow() {
   return (
-    <section id="workflow" className="py-32 w-full bg-[#050505]">
-      <div className="w-full max-w-[1400px] mx-auto px-6">
+    <section id="workflow" className="py-20 md:py-32 w-full bg-[#050505]">
+      <div className="w-full max-w-[1400px] mx-auto px-5 md:px-6">
         
         {/* Section Header */}
         <motion.div
@@ -42,14 +42,16 @@ export function Workflow() {
           <div className="text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase mb-10">
             What We Build
           </div>
-          <h2 className="text-[50px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white max-w-4xl">
+          <h2 className="text-[46px] md:text-[64px] lg:text-[76px] font-black tracking-[-0.03em] leading-[0.95] text-white max-w-4xl">
             End-to-end digital solutions <br />
             designed to generate leads.
           </h2>
         </motion.div>
 
         {/* List items */}
-        <div className="flex flex-col">
+        <div className="flex flex-col relative">
+          {/* Vertical progress line for mobile */}
+          <div className="absolute left-[35px] top-16 bottom-16 w-[1px] bg-gradient-to-b from-transparent via-[#222] to-transparent md:hidden" />
           {BUILD_ITEMS.map((item, index) => (
             <motion.div
               key={index}
@@ -57,20 +59,20 @@ export function Workflow() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex flex-col md:flex-row md:items-center justify-between py-12 ${index === 0 ? 'border-t border-[#111]' : ''} border-b border-[#111] group hover:bg-[#0A0A0A] transition-colors duration-300 px-4 -mx-4 rounded-xl`}
+              className={`flex flex-col md:flex-row md:items-center justify-between py-14 md:py-12 ${index === 0 ? 'border-t border-[#111]' : ''} border-b border-[#111] group hover:bg-transparent md:hover:bg-[#0A0A0A] transition-colors duration-300 px-4 -mx-4 rounded-xl relative`}
             >
               {/* Left Side: Number & Title */}
-              <div className="flex items-center gap-8 md:gap-12 mb-6 md:mb-0">
-                <span className="text-[60px] md:text-[80px] font-black text-[#1A1A1A] leading-none group-hover:text-[#222] transition-colors duration-300">
+              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 mb-8 md:mb-0">
+                <span className="text-[72px] md:text-[80px] font-black text-[#1A1A1A] leading-none group-hover:text-[#222] transition-colors duration-300 bg-[#050505] relative z-10 inline-block pr-6 md:pr-0">
                   {item.number}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                <h3 className="text-[28px] md:text-3xl font-bold text-white tracking-tight">
                   {item.title}
                 </h3>
               </div>
 
               {/* Right Side: Tags */}
-              <div className="flex flex-wrap items-center gap-3 md:gap-4 md:max-w-2xl justify-start md:justify-end text-[#777] text-[13px] font-medium leading-relaxed">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 md:max-w-2xl justify-start md:justify-end text-[#888] text-[15px] md:text-[13px] font-medium leading-relaxed pl-2 md:pl-0">
                 {item.tags.map((tag, tagIndex) => (
                   <div key={tagIndex} className="flex items-center gap-3 md:gap-4">
                     <span>{tag}</span>

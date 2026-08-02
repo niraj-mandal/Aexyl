@@ -6,13 +6,13 @@ import { WA_LINKS } from "@/lib/utils";
 export function Footer() {
   return (
     <motion.footer
-      className="w-full bg-black border-t border-[#111] pt-20 pb-12 overflow-hidden relative"
+      className="w-full bg-black border-t border-[#111] pt-16 md:pt-20 pb-12 overflow-hidden relative"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 relative z-10">
+      <div className="w-full max-w-[1200px] mx-auto px-5 md:px-6 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           
@@ -31,8 +31,8 @@ export function Footer() {
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col md:items-end justify-between gap-8">
-            <div className="flex gap-4">
+          <div className="flex flex-col md:items-end justify-between gap-8 md:gap-8 mt-4 md:mt-0">
+            <div className="flex flex-wrap gap-4">
               {/* WhatsApp */}
               <motion.a
                 href={WA_LINKS.footerCta} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
@@ -88,11 +88,11 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-[#111] mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-[13px] text-[#555] font-medium">
+        <div className="border-t border-[#111] mt-16 pt-8 flex flex-col md:flex-row items-center md:justify-between gap-6 md:gap-4 text-center md:text-left">
+          <div className="text-[13px] text-[#555] font-medium order-2 md:order-1">
             &copy; {new Date().getFullYear()} AEXYL.IN. All rights reserved.
           </div>
-          <div className="flex gap-6 text-[13px] text-[#555] font-medium">
+          <div className="flex gap-6 text-[13px] text-[#555] font-medium order-1 md:order-2">
             <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
           </div>

@@ -35,8 +35,8 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="w-full bg-black py-32">
-      <div className="w-full max-w-[900px] mx-auto px-6">
+    <section id="faq" className="w-full bg-black py-20 md:py-32">
+      <div className="w-full max-w-[900px] mx-auto px-5 md:px-6">
         
         {/* Section Header */}
         <motion.div
@@ -64,9 +64,9 @@ export function FAQ() {
             >
               <button
                 onClick={() => toggleOpen(index)}
-                className="w-full py-8 flex items-center justify-between text-left focus:outline-none group cursor-pointer"
+                className="w-full py-6 md:py-8 flex items-center justify-between text-left focus:outline-none group cursor-pointer min-h-[64px]"
               >
-                <span className={`text-[17px] md:text-xl font-medium tracking-tight transition-colors duration-300 ${openIndex === index ? 'text-white underline underline-offset-8 decoration-[#FF3B30]' : 'text-[#DDD] group-hover:text-white'}`}>
+                <span className={`text-[17px] md:text-xl font-medium tracking-tight transition-colors duration-300 pr-4 md:pr-0 ${openIndex === index ? 'text-white underline underline-offset-8 decoration-[#FF3B30]' : 'text-[#DDD] group-hover:text-white'}`}>
                   {faq.question}
                 </span>
                 <motion.div
@@ -91,7 +91,7 @@ export function FAQ() {
                       initial={{ opacity: 0, y: -8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: 0.1 }}
-                      className="pb-8 text-[#888] text-[15px] font-medium leading-relaxed pr-8"
+                      className="pb-6 md:pb-8 text-[#888] text-[16px] md:text-[15px] font-medium leading-[1.6] md:leading-relaxed pr-6 md:pr-8"
                     >
                       {faq.answer}
                     </motion.p>
