@@ -152,11 +152,6 @@ export function Packages() {
               )}
 
               <h3 className="text-[15px] md:text-sm font-bold md:font-semibold text-[#888] mb-4">{tier.name}</h3>
-              
-              <div className="flex items-end gap-1 mb-4">
-                <span className="text-[44px] md:text-4xl font-black text-white leading-none">{tier.price}</span>
-                <span className="text-[#555] text-[13px] md:text-xs font-medium mb-1">/month</span>
-              </div>
 
               <p className="text-[#777] text-[15px] md:text-[13px] font-medium leading-[1.6] md:leading-relaxed min-h-[50px] mb-8">
                 {tier.description}
