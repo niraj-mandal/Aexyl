@@ -28,7 +28,12 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-[#FF6B81] to-[#FF8E8E] bg-clip-text text-transparent;
+    background: linear-gradient(90deg, #E53935 0%, #FF3B3B 45%, #FF6B6B 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 24px rgba(255, 59, 59, 0.12);
   }
 }
 
