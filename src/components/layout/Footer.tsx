@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { WA_LINKS } from "@/lib/utils";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -104,8 +105,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} AEXYL.IN. All rights reserved.
           </div>
           <div className="flex gap-6 text-[13px] text-[#555] font-medium order-1 md:order-2">
-            <a href="#" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors duration-300">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors duration-300">Terms of Service</Link>
           </div>
         </div>
 
