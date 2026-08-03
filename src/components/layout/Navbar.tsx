@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { cn, scrollToSection } from "@/lib/utils";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { name: "Services", href: "#services" },
-  { name: "Packages", href: "#packages" },
-  { name: "Workflow", href: "#the-workflow" },
+  { name: "Services", href: "/#services" },
+  { name: "Packages", href: "/#packages" },
+  { name: "Workflow", href: "/#the-workflow" },
 ];
 
 export function Navbar() {
@@ -46,21 +47,20 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center">
-          <a href="#" className="text-[15px] font-bold tracking-widest text-[#FF3B30]">
+          <Link href="/" className="text-[15px] font-bold tracking-widest text-[#FF3B30]">
             AEXYL
-          </a>
+          </Link>
         </div>
 
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.name}>
-              <a 
+              <Link 
                 href={link.href}
-                onClick={(e) => scrollToSection(e as React.MouseEvent<HTMLAnchorElement>, link.href.substring(1))}
                 className="relative text-[14px] font-medium text-[#999] hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-[#FF3B30] after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -117,18 +117,15 @@ export function Navbar() {
               
               <div className="flex flex-col gap-8 mb-10">
                 {NAV_LINKS.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
-                    onClick={(e) => {
-                      setIsMenuOpen(false);
-                      scrollToSection(e as React.MouseEvent<HTMLAnchorElement>, link.href.substring(1));
-                    }}
+                    onClick={() => setIsMenuOpen(false)}
                     className="text-[15px] font-bold text-[#DDD] flex items-center justify-between tracking-wide group"
                   >
                     {link.name}
                     <span className="text-[#555] group-hover:text-white transition-colors">→</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
                 

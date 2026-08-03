@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function PrivacyPolicyContent() {
   const sections = [
@@ -157,6 +158,19 @@ export function PrivacyPolicyContent() {
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="mb-16"
       >
+        <Link 
+          href="/"
+          className="inline-flex items-center text-[14px] font-medium text-[#888] hover:text-white transition-colors duration-300 mb-8 group"
+        >
+          <span className="mr-2 group-hover:-translate-x-1 transition-transform duration-300">←</span> Back to Home
+        </Link>
+        
+        <div className="flex items-center text-[13px] font-medium text-[#555] mb-6 tracking-wide">
+          <Link href="/" className="hover:text-white transition-colors duration-300">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="text-white">Privacy Policy</span>
+        </div>
+
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
           Privacy Policy
         </h1>
