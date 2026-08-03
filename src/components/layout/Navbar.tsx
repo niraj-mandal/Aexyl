@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { cn, WA_LINKS, scrollToSection } from "@/lib/utils";
+import { cn, scrollToSection } from "@/lib/utils";
 
 const NAV_LINKS = [
   { name: "Services", href: "#services" },
@@ -56,7 +56,7 @@ export function Navbar() {
             <li key={link.name}>
               <a 
                 href={link.href}
-                onClick={(e) => scrollToSection(e as any, link.href.substring(1))}
+                onClick={(e) => scrollToSection(e as React.MouseEvent<HTMLAnchorElement>, link.href.substring(1))}
                 className="relative text-[14px] font-medium text-[#999] hover:text-white transition-colors duration-300 after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-[#FF3B30] after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.name}
@@ -122,7 +122,7 @@ export function Navbar() {
                     href={link.href}
                     onClick={(e) => {
                       setIsMenuOpen(false);
-                      scrollToSection(e as any, link.href.substring(1));
+                      scrollToSection(e as React.MouseEvent<HTMLAnchorElement>, link.href.substring(1));
                     }}
                     className="text-[15px] font-bold text-[#DDD] flex items-center justify-between tracking-wide group"
                   >

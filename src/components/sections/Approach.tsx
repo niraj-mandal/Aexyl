@@ -91,7 +91,7 @@ export function Approach() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <h3 className="text-[38px] md:text-[50px] font-black leading-[0.95] tracking-tight text-white mb-6 md:mb-8">
-                We don't sell<br />
+                We don&apos;t sell<br />
                 marketing tricks.
               </h3>
               <p className="text-[#888] text-[16px] md:text-[15px] leading-relaxed md:leading-relaxed pr-4 md:pr-0">

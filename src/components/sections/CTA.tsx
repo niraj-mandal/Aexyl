@@ -33,10 +33,10 @@ export function CTA() {
         
         {/* Subtitle */}
         <p className="md:hidden text-[#888] text-[15px] font-medium leading-[1.6] px-4 mb-12">
-          Let's build the websites, automation, and<br />infrastructure behind your next stage of growth.
+          Let&apos;s build the websites, automation, and<br />infrastructure behind your next stage of growth.
         </p>
         <p className="hidden md:block text-[#888] text-lg font-medium leading-relaxed max-w-2xl mb-12">
-          Let's build the websites, automation, and infrastructure behind your<br />next stage of growth.
+          Let&apos;s build the websites, automation, and infrastructure behind your<br />next stage of growth.
         </p>
         
         {/* Buttons */}

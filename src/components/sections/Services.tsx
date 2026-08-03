@@ -1,53 +1,176 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Cpu, Layers, Zap, BarChart3 } from "lucide-react";
+import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { useState, useEffect } from "react";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-const SERVICES = [
-  { Icon: Cpu, title: "Modern Technology", desc: "AI-powered systems built for today's businesses.", border: true },
-  { Icon: Layers, title: "Custom Solutions", desc: "Every system is tailored to your specific business needs.", border: true },
-  { Icon: Zap, title: "Automation First", desc: "Reduce manual work and improve operational efficiency.", border: true },
-  { Icon: BarChart3, title: "Long-Term Growth", desc: "Infrastructure designed to support your future growth.", border: false },
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+const services = [
+  {
+    num: "01",
+    title: "Website Development",
+    features: ["Mobile First", "Fast Loading", "SEO", "Forms"],
+  },
+  {
+    num: "02",
+    title: "AI Automation",
+    features: ["AI Agents", "CRM", "WhatsApp", "Workflows"],
+  },
+  {
+    num: "03",
+    title: "Growth Systems",
+    features: ["Funnels", "Analytics", "Automation"],
+  },
 ];
 
 export function Services() {
-  return (
-    <section id="services" className="w-full border-t border-[#111] bg-[#050505]">
-      <div className="w-full max-w-[1400px] mx-auto px-5 md:px-6 lg:px-0 pt-20 md:pt-24 pb-16 md:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-16 text-[11px] font-bold text-[#555] tracking-[0.2em] uppercase"
-        >
-          Why Businesses Choose Aexyl.in
-        </motion.div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
-          {SERVICES.map((service, i) => (
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isMobile) return;
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX / innerWidth) * 2 - 1;
+    const y = (clientY / innerHeight) * 2 - 1;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
+  const springConfig = { damping: 30, stiffness: 100 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  const parallaxX = useTransform(smoothX, [-1, 1], [-4, 4]);
+  const parallaxY = useTransform(smoothY, [-1, 1], [-4, 4]);
+
+  return (
+    <section 
+      id="services"
+      className="w-full bg-[#050505] py-24 md:py-40 px-6 md:px-12 flex justify-center overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="w-full max-w-[1440px] flex flex-col">
+        {services.map((service, index) => {
+          const isHovered = hoveredIndex === index;
+          const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
+          
+          return (
             <motion.div
-              key={i}
+              key={service.num}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className={`flex flex-col items-start p-8 md:p-10 ${service.border ? 'lg:border-r border-b lg:border-b-0' : ''} border-[#111] group cursor-default bg-[#0A0A0A] md:bg-transparent rounded-2xl md:rounded-none mb-4 md:mb-0`}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative"
+              onMouseEnter={() => !isMobile && setHoveredIndex(index)}
+              onMouseLeave={() => !isMobile && setHoveredIndex(null)}
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <service.Icon className="w-7 h-7 md:w-5 md:h-5 text-[#FF3B30] mb-6 md:mb-6 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,59,48,0.4)]" />
-              </motion.div>
-              <h3 className="text-[17px] md:text-[15px] font-bold text-white mb-3 md:mb-3 tracking-tight">{service.title}</h3>
-              <p className="text-[#888] text-[15px] md:text-[13px] leading-[1.6] md:leading-relaxed pr-4 md:pr-0">
-                {service.desc}
-              </p>
+              {/* Divider */}
+              <div 
+                className={cn(
+                  "w-full h-[1px] bg-white transition-opacity duration-500 ease-[cubic-bezier(.22,1,.36,1)]",
+                  isMobile ? "opacity-15" : isHovered ? "opacity-40" : "opacity-15"
+                )}
+              />
+
+              <div className="py-8 md:py-16 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-12 relative cursor-default">
+                
+                {/* Left Side: Number and Title */}
+                <motion.div 
+                  className="flex items-center gap-6 md:gap-12"
+                  style={{ 
+                    x: isHovered && !isMobile ? parallaxX : 0, 
+                    y: isHovered && !isMobile ? parallaxY : 0 
+                  }}
+                >
+                  <div 
+                    className={cn(
+                      "font-black text-4xl md:text-5xl lg:text-6xl text-white transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]",
+                      isHovered && !isMobile ? "-translate-x-[6px]" : "translate-x-0"
+                    )}
+                    style={{ 
+                      opacity: isMobile ? 0.18 : isOtherHovered ? 0.1 : 0.18,
+                    }}
+                  >
+                    {service.num}
+                  </div>
+                  
+                  <div 
+                    className={cn(
+                      "font-[800] tracking-[-0.04em] text-3xl md:text-5xl lg:text-6xl transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)] origin-left",
+                      (isHovered || isMobile) ? "text-white" : "text-[#777]",
+                      isHovered && !isMobile ? "scale-[1.03]" : "scale-100"
+                    )}
+                    style={{
+                      opacity: isMobile ? 1 : isOtherHovered ? 0.35 : 1,
+                    }}
+                  >
+                    {service.title}
+                  </div>
+                </motion.div>
+
+                {/* Right Side: Features */}
+                <div className="flex flex-wrap md:justify-end items-center gap-x-2 gap-y-2 md:w-1/2 ml-[72px] md:ml-0 mt-2 md:mt-0">
+                  {service.features.map((feature, fIndex) => (
+                    <div key={feature} className="flex items-center gap-2">
+                      {fIndex > 0 && (
+                        <div
+                          className={cn(
+                            "text-[#444] text-sm md:text-base hidden md:block transition-opacity duration-500",
+                            isHovered ? "opacity-100" : "opacity-0"
+                          )}
+                        >
+                          ·
+                        </div>
+                      )}
+                      
+                      <motion.div
+                        initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                        animate={isMobile ? { opacity: 1, y: 0 } : (isHovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 })}
+                        transition={{ 
+                          duration: 0.5, 
+                          delay: isMobile ? 0 : isHovered ? fIndex * 0.05 : 0, 
+                          ease: [0.22, 1, 0.36, 1] 
+                        }}
+                        className={cn(
+                          "font-medium text-sm md:text-[15px] text-[#777]",
+                          isMobile ? "bg-[#111] px-3 py-1.5 rounded-md border border-white/5" : ""
+                        )}
+                      >
+                        {feature}
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
-          ))}
-        </div>
+          );
+        })}
+        {/* Final Divider */}
+        <div className="w-full h-[1px] bg-white opacity-15" />
       </div>
     </section>
   );

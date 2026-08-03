@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Globe, Bot, Zap, TrendingUp, CheckCircle2 } from "lucide-react";
-import { WA_LINKS } from "@/lib/utils";
 
 const stagger = {
   hidden: {},
@@ -14,10 +13,6 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-const fadeScale = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
-};
 
 const slideRight = {
   hidden: { opacity: 0, x: 60 },
