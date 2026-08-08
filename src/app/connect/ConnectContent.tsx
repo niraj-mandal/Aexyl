@@ -53,7 +53,7 @@ export function ConnectContent() {
     },
     {
       title: "BOOK A FREE STRATEGY CALL",
-      href: "tel:+918724029014",
+      href: waLink("Hi AEXYL! I’d like to book a free strategy call. I’d love to discuss my business and explore how AEXYL can help with websites, automation, AI systems, and growth. Please let me know the available slots."),
       icon: <Calendar className="w-5 h-5 shrink-0" />,
       primary: true,
       accent: true,
